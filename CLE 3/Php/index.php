@@ -14,8 +14,8 @@
 </head>
 <body>
 <section>
-    <div class = "polaroid" id="playing-field"></div>
-    <p class="container" id="titlebox">Test</p>
+    <div id="playing-field"></div>
+    <div id="titlebox"></div>
 </section>
 <script type = "text/javascript" src = "../Js/main.js"></script>
 </body>
