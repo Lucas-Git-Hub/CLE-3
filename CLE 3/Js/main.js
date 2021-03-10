@@ -1,6 +1,6 @@
 window.addEventListener('load',init);
 
-let shows = [1,2,3,4];
+let shows = ["Testshow1","Testshow2","Testshow3","Testshow4"];
 let codes = ['5231','213','12313','1232'];
 let currentClickedImage;
 let playField;
@@ -27,7 +27,7 @@ function createPlayField(){
         curtain.appendChild(img);
 
         let title = document.createElement('div');
-        title.innerHTML = i.toString();
+        title.innerHTML = shows[i]
         title.classList.add('container');
         curtain.appendChild(title);
 
@@ -51,7 +51,7 @@ function playingFieldClickHandler(e){
     //Show code if clicked on the image
     let code = e.target;
     let codeIndex = code.dataset.index;
-    code.setAttribute('string',codes[codeIndex])
+    code.setAttribute('code',codes[codeIndex])
 
     //Save code
     currentClickedImage = code;
