@@ -1,8 +1,8 @@
 <?php
-echo "Dit is filler";
+
+
 ?>
 
-!
 <!doctype html>
 <head>
     <meta charset="UTF-8">
@@ -10,15 +10,12 @@ echo "Dit is filler";
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
-    <title>Document</title>
+    <title>Codes JustDanceAR</title>
 </head>
 <body>
 <section>
-    <form>
-        <div>
-
-        </div>
-    </form>
+    <div id="play-field"></div>
 </section>
+<script type = "text/javascript" src = "../Js/main.js"></script>
 </body>
 

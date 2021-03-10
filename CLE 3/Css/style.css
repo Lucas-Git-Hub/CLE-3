@@ -1,6 +1,15 @@
 body {
+    width: 420px;
+    margin: 0 auto;
     text-align: center;
 }
+
 form {
     display: inline-block;
+}
+
+.curtain {
+    float: left;
+    margin: 5px;
+    width: 200px;
 }
