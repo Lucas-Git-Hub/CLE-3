@@ -3,23 +3,39 @@ body {
     margin: 0 auto;
 }
 
-div.polaroid {
+.polaroid {
     float: left;
     width: 200px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 20px;
+    position: relative;
+    cursor: pointer;
 }
 
 img {width: 100%}
 
-div.container {
+.container {
     text-align: center;
     padding: 10px 20px;
+    border-radius: 4px;
 }
 
-.curtain {
-    float: left;
-    margin: 5px;
-    width: 200px;
+.polaroid > div,.polaroid > h2{
+    position: absolute;
+    background-color: white;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    border-radius: 4px;
+    padding: 8px;
+    overflow: hidden;
+    opacity: 0;
+    transition: .3s;
+}
+
+.polaroid:hover > h2{
+    bottom: 4px;
+    opacity: 1;
+
 }
