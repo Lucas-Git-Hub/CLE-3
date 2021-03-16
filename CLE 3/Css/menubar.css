@@ -1,5 +1,6 @@
+/* Navigation bar with color and style*/
 ul {
-    background-color: #e34949;
+    background-color: #05E0DA;
     list-style-type: none;
     overflow: hidden;
     margin: 0;
@@ -10,24 +11,25 @@ li {
     display: inline;
     float: left;
 }
-
+/* Links get special font and color*/
 li a {
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: Fantasy;
 }
-
+/* Shows text as red when hovered over*/
 li a:hover {
-    background-color: #e05c5c;
+    color: #a80a18;
 }
 
 a {
     display: block;
     padding: 8px;
 }
-
+/* Shows text as red when on page */
 .active {
-    background-color: #a80a18;
+    color: #a80a18;
 }
