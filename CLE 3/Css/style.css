@@ -1,6 +1,11 @@
 body {
-    width: 600px;
+    background-image: url("../img/theater-walhalla.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0 auto;
+    align-content: center;
+    background-color: #F8012D;
 }
 
 .polaroid {
