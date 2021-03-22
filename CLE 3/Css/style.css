@@ -1,3 +1,4 @@
+/* Body colour/background*/
 body {
     background-image: url("../img/theater-walhalla.png");
     background-position: center;
@@ -8,9 +9,10 @@ body {
     background-color: #F8012D;
 }
 
+/* Image per show gets shown in this visual */
 .polaroid {
     float: left;
-    width: 200px;
+    width: 30%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 20px;
@@ -20,12 +22,14 @@ body {
 
 img {width: 100%}
 
+/* Title of show gets shown in this box */
 .container {
     text-align: center;
     padding: 10px 20px;
     border-radius: 4px;
 }
 
+/* Hover over polaroid, shows h2 */
 .polaroid > div,.polaroid > h2{
     position: absolute;
     background-color: white;
@@ -43,4 +47,18 @@ img {width: 100%}
     bottom: 4px;
     opacity: 1;
 
+}
+
+/* Changes image size for different types of screens */
+
+@media screen and (max-width: 992px){
+    .polaroid and .container{
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .polaroid and .container {
+        width: 10%;
+    }
 }
