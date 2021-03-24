@@ -24,13 +24,13 @@ try {
     $mail->addAddress('1006222@hr.nl', 'Jesper');
 
     $mail->isHTML(true);
-    $mail->Subject = 'Dit is een test';
+    $mail->Subject = 'Code';
     $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
-    echo 'Message has been sent';
+    echo 'Uw code is naar uw mail gestuurd';
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo "Code kon niet verstuurd worden naar uw Mail, MAIL ERROR: {$mail->ErrorInfo}";
 }
 
