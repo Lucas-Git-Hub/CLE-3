@@ -1,6 +1,8 @@
 <?php
 /** @var  $db */
 session_start();
+$gelukt = true;
+
 
 if (isset($_POST['submit'])){
     require_once 'database.php';
@@ -20,6 +22,9 @@ if (isset($_POST['submit'])){
     if (empty($errors)){
      $query = "SELECT * FROM users WHERE email = '$email'";
      $result = mysqli_query($db, $query);
+     if ($result){
+         $gelukt = false;
+     }
      if (mysqli_num_rows($result) == 1){
          $user = mysqli_fetch_assoc($result);
          if (password_verify($password, $user['password'])){
@@ -30,8 +35,11 @@ if (isset($_POST['submit'])){
             ];
          }
      }
+
     }
+    $db -> close();
 }
+
 
 if (isset($_SESSION['loggedInUser'])){
     header('Location: account.php');
@@ -72,4 +80,9 @@ if (isset($_SESSION['loggedInUser'])){
         <input id="submit" type="submit" value="login">
     </div>
 </form>
+<div>
+    <?php if ($gelukt){ ?>
+        <p>gelukt</p>
+  <?php  }?>
+</div>
 </body>
