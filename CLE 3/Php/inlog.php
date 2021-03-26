@@ -56,6 +56,7 @@ if (isset($_SESSION['loggedInUser'])){
 </nav>
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
+<link rel="stylesheet" type="text/css" href="../Css/form.css">
 <form id="inlog" action="" method="post" enctype="multipart/form-data">
     <div>
         <label for="email">email</label>
