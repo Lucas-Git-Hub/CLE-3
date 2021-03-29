@@ -1,50 +1,51 @@
 <?php
 /** @var  $db */
 session_start();
-$gelukt = true;
+require_once 'database.php';
+$gelukt = false;
 
+if (isset($_SESSION['loggedInUser'])) {
+    header('Location: account.php');
+    exit;
+}
 
 if (isset($_POST['submit'])){
-    require_once 'database.php';
 
     $email = mysqli_escape_string($db,$_POST['email']);
     $password = $_POST['password'];
 
     $errors = [];
-    if ($email == '') {
+    if ($email == "") {
         $errors['email'] = "verplicht veld";
     }
 
-    if ($password == '') {
+    if ($password == "") {
         $errors['password'] = "verplicht veld";
     }
 
     if (empty($errors)){
-     $query = "SELECT * FROM users WHERE email = '$email'";
-     $result = mysqli_query($db, $query);
-     if ($result){
-         $gelukt = false;
-     }
-     if (mysqli_num_rows($result) == 1){
-         $user = mysqli_fetch_assoc($result);
-         if (password_verify($password, $user['password'])){
-            $_SESSION['loggedInUser'] = [
+        $query = "SELECT * FROM users WHERE email = '$email'";
+        $result = mysqli_query($db, $query);
+        if ($result){
+            $gelukt = true;
+        }
+        if (mysqli_num_rows($result) == 1){
+            $user = mysqli_fetch_assoc($result);
+            if (password_verify($password, $user['password'])){
+                $_SESSION['loggedInUser'] = [
                     'userMail' => $user['email'],
-                'password' => $user['password'],
+                    'password' => $user['password'],
 
-            ];
-         }
-     }
+                ];
+            }
+        }
 
     }
-    $db -> close();
+
 }
 
+$db -> close();
 
-if (isset($_SESSION['loggedInUser'])){
-    header('Location: account.php');
-    exit;
-}
 ?>
 
 <!doctype html>
@@ -65,24 +66,24 @@ if (isset($_SESSION['loggedInUser'])){
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
 <link rel="stylesheet" type="text/css" href="../Css/form.css">
-<form id="inlog" action="" method="post" enctype="multipart/form-data">
-    <div>
+<?php if ($gelukt){ ?>
+<p>ingelogd!</p>
+<?php } else { ?>
+<h1>login</h1>
+<form id="inlog" action="inlog.php" method="post" enctype="multipart/form-data">
+    <p>
         <label for="email">email</label>
         <input id="email" type="text" name="email" value = "<?= isset($email) ? htmlentities($email) : '' ?>"/>
         <span class="errors"><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
-    </div>
-    <div>
+    </p>
+    <p>
         <label for="password">password</label>
         <input id="password" type="password" name="password" value = "<?= isset($password) ? htmlentities($password) : '' ?>"/>
         <span class="errors"><?= isset($errors['password']) ? $errors['password'] : '' ?></span>
-    </div>
-    <div>
+    </p>
+    <p>
         <input id="submit" type="submit" value="login">
-    </div>
+    </p>
 </form>
-<div>
-    <?php if ($gelukt){ ?>
-        <p>gelukt</p>
-  <?php  }?>
-</div>
+<?php } ?>
 </body>
