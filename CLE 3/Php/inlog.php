@@ -63,7 +63,7 @@ $db -> close();
 </nav>
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
-    <section>
+<section>
     <h1>login</h1>
     <form id="inlog" action= "" method="post" enctype="multipart/form-data">
         <div>
@@ -80,5 +80,5 @@ $db -> close();
             <input type="submit" name="submit" value="login">
         </div>
     </form>
-    </section>
+</section>
 </body>
