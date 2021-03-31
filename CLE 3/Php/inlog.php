@@ -2,8 +2,6 @@
 /** @var  $db */
 session_start();
 require_once 'database.php';
-$gelukt = false;
-$onjuist = false;
 
 if (isset($_SESSION['loggedInUser'])){
     header('Location: account.php');
@@ -27,9 +25,6 @@ if (isset($_POST['submit'])){
     if (empty($errors)){
         $query = "SELECT * FROM users WHERE email = '$email'";
         $result = mysqli_query($db, $query);
-        if ($result){
-            $gelukt = true;
-        }
         if (mysqli_num_rows($result) == 1){
             $user = mysqli_fetch_assoc($result);
             if (password_verify($password, $user['password'])){
@@ -38,11 +33,8 @@ if (isset($_POST['submit'])){
                     'password' => $user['password'],
 
                 ];
-            } else{
-                $onjuist = true;
             }
-        } else{
-            $onjuist = true;
+
         }
 
     }
@@ -54,6 +46,7 @@ $db -> close();
 ?>
 
 <!doctype html>
+<html lang = "en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -70,10 +63,7 @@ $db -> close();
 </nav>
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
-<link rel="stylesheet" type="text/css" href="../Css/form.css">
-<?php if ($gelukt){
-    header('Location: account.php')?>
-<?php } else { ?>
+    <section>
     <h1>login</h1>
     <form id="inlog" action= "" method="post" enctype="multipart/form-data">
         <div>
@@ -90,10 +80,5 @@ $db -> close();
             <input type="submit" name="submit" value="login">
         </div>
     </form>
-    <section>
-        <?php if ($onjuist){?>
-            <p>email/wachtwoord onjuist</p>
-        <?php}?>
     </section>
-<?php } ?>
 </body>
