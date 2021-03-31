@@ -8,6 +8,7 @@ body {
     background-color: #F8012D;
 }
 
+/* Flexbox for divs, makes them align in a row*/
 div {
     display: flex;
     flex-flow: row wrap;
@@ -15,6 +16,7 @@ div {
     align-content: space-around;
 }
 
+/* Size of image is set to a certain amount of px */
 img {
     height: 300px;
     width: 400px;
