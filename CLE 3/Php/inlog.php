@@ -3,6 +3,7 @@
 session_start();
 require_once 'database.php';
 $gelukt = false;
+$onjuist = false;
 
 if (isset($_SESSION['loggedInUser'])){
     header('Location: account.php');
@@ -37,7 +38,11 @@ if (isset($_POST['submit'])){
                     'password' => $user['password'],
 
                 ];
+            } else{
+                $onjuist = true;
             }
+        } else{
+            $onjuist = true;
         }
 
     }
@@ -66,8 +71,8 @@ $db -> close();
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
 <link rel="stylesheet" type="text/css" href="../Css/form.css">
-<?php if ($gelukt){ ?>
-    <p>ingelogd!</p>
+<?php if ($gelukt){
+    header('Location: account.php')?>
 <?php } else { ?>
     <h1>login</h1>
     <form id="inlog" action= "" method="post" enctype="multipart/form-data">
@@ -85,5 +90,10 @@ $db -> close();
             <input type="submit" name="submit" value="login">
         </div>
     </form>
+    <section>
+        <?php if ($onjuist){?>
+            <p>email/wachtwoord onjuist</p>
+        <?php}?>
+    </section>
 <?php } ?>
 </body>
