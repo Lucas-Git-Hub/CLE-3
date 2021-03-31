@@ -8,14 +8,21 @@ body {
     background-color: #F8012D;
 }
 
-img {width: 100%}
-
-/* Image per show gets shown in this visual */
-.polaroid {
+div {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    width: 30%;
+    align-content: space-around;
+}
+
+img {
+    height: 300px;
+    width: 400px;
+}
+
+/* Image per show gets shown in this visual */
+.polaroid {
+    width: 400px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: auto;
@@ -25,9 +32,6 @@ img {width: 100%}
 
 /* Title of show gets shown in this box */
 .container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
     text-align: center;
     padding: 10px 20px;
     border-radius: 4px;

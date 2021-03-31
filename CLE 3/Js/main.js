@@ -1,8 +1,8 @@
 window.addEventListener('load',init);
 
-let shows = ["Pink Elephants on Parade","Walhalla’s Grote Preview Revue","Sultan in de maan","Ali & Nino 8+"];
-let codes = ['5231','213','12313','1232'];
-let showPictures = ['../img/Pink-Elephants.jpg','../img/Walhalla-Revue.jpg','../img/sultan-in-de-maan.jpg','../img/Ali-Nino.jpg'];
+let shows = ["Pink Elephants on Parade","Walhalla’s Grote Preview Revue","Sultan in de maan","Ali & Nino 8+","Peter Blanker en Izak Boom","Kaspar H. 8+"];
+let codes = ['5231','213','12313','1232','2332','2555'];
+let showPictures = ['../img/Pink-Elephants.jpg','../img/Walhalla-Revue.jpg','../img/sultan-in-de-maan.jpg','../img/Ali-Nino.jpg','../img/Peter-Izak.jpg','../img/KasparH.jpg'];
 let playField;
 let lastTarget;
 
