@@ -1,12 +1,15 @@
 window.addEventListener('load',init);
 
-let shows = ["Testshow1","Testshow2","Testshow3","Testshow4"];
+let shows = ["Pink Elephants on Parade","Walhalla’s Grote Preview Revue","Sultan in de maan","Ali & Nino 8+"];
 let codes = ['5231','213','12313','1232'];
+let showPictures = ["../img/Pink-Elephants.jpg","../img/Walhalla-Revue.jpg","../img/sultan-in-de-maan.jpg","../img/Ali-Nino.jpg"]
 let playField;
+let lastTarget;
 
 //Initialize after the DOM is ready
 function init(){
     playField = document.getElementById('playing-field');
+    playField.addEventListener('click',clickEventHandler);
 
     createPlayField();
 }
@@ -24,11 +27,6 @@ function createPlayField(){
         img.dataset.index = i.toString();
         curtain.appendChild(img);
 
-        let showCode = document.createElement('h2');
-        showCode.innerHTML = codes[i];
-        showCode.classList.add('container')
-        curtain.appendChild(showCode);
-
         let title = document.createElement('h1');
         title.innerHTML = shows[i]
         title.classList.add('container');
@@ -39,3 +37,19 @@ function createPlayField(){
     }
 }
 
+function clickEventHandler(e){
+
+    let currentTarget = e.target;
+
+    if (currentTarget.nodeName !== "IMG"){
+        return;
+    }
+    console.log(currentTarget);
+
+    if (lastTarget){
+        lastTarget.src = '../img/gordijn.jpg'
+    }
+
+    currentTarget.src = showPictures[currentTarget.dataset.id];
+    lastTarget = currentTarget;
+}
