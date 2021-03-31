@@ -2,7 +2,7 @@ window.addEventListener('load',init);
 
 let shows = ["Pink Elephants on Parade","Walhalla’s Grote Preview Revue","Sultan in de maan","Ali & Nino 8+"];
 let codes = ['5231','213','12313','1232'];
-let showPictures = ["../img/Pink-Elephants.jpg","../img/Walhalla-Revue.jpg","../img/sultan-in-de-maan.jpg","../img/Ali-Nino.jpg"]
+let showPictures = ['../img/Pink-Elephants.jpg','../img/Walhalla-Revue.jpg','../img/sultan-in-de-maan.jpg','../img/Ali-Nino.jpg'];
 let playField;
 let lastTarget;
 
@@ -23,9 +23,14 @@ function createPlayField(){
 
         //3 Subelements, a title, a picture of the show and the code
         let img = document.createElement('img');
-        img.setAttribute('src', '../img/gordijn.jpg');
-        img.dataset.index = i.toString();
+        img.src = '../img/gordijn.jpg';
+        img.dataset.id = i.toString();
         curtain.appendChild(img);
+
+        let showCode = document.createElement('h2');
+        showCode.innerHTML = codes[i];
+        showCode.classList.add('container');
+        curtain.appendChild(showCode);
 
         let title = document.createElement('h1');
         title.innerHTML = shows[i]
@@ -37,19 +42,23 @@ function createPlayField(){
     }
 }
 
+//Shows picture of show when clicked on curtain and hides show when a different one is clicked
 function clickEventHandler(e){
 
     let currentTarget = e.target;
 
-    if (currentTarget.nodeName !== "IMG"){
+    //checks if IMG else stop function
+    if (currentTarget.tagName !== "IMG"){
         return;
     }
-    console.log(currentTarget);
 
+    //Picture returns to being curtain picture
     if (lastTarget){
         lastTarget.src = '../img/gordijn.jpg'
     }
 
+    //Shows picture of show that is on that index
     currentTarget.src = showPictures[currentTarget.dataset.id];
     lastTarget = currentTarget;
+
 }
