@@ -10,4 +10,4 @@ $db = mysqli_connect($servername,$username,$password,$dbname);
 if ($db -> connect_error){
     die("error ".$db -> connect_error);
 }
-echo 'connected succesfully';
+

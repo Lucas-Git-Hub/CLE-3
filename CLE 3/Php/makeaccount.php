@@ -1,13 +1,9 @@
 <?php
+
 /** @var  $db */
 session_start();
 require_once 'database.php';
 $gelukt = false;
-
-if (isset($_SESSION['loggedInUser'])){
-    header('Location: account.php');
-    exit;
-}
 
 if (isset($_POST['submit'])){
 
@@ -24,22 +20,12 @@ if (isset($_POST['submit'])){
     }
 
     if (empty($errors)){
-        $query = "SELECT * FROM users WHERE email = '$email'";
-        $result = mysqli_query($db, $query);
+        $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+        $query = "INSERT INTO users (email, password) VALUES ('$email','$password');";
+        $result = mysqli_query($db,$query);
         if ($result){
             $gelukt = true;
         }
-        if (mysqli_num_rows($result) == 1){
-            $user = mysqli_fetch_assoc($result);
-            if (password_verify($password, $user['password'])){
-                $_SESSION['loggedInUser'] = [
-                    'userMail' => $user['email'],
-                    'password' => $user['password'],
-
-                ];
-            }
-        }
-
     }
 
 }
@@ -54,7 +40,7 @@ $db -> close();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inlogpagina</title>
+    <title>Maak Account</title>
 </head>
 <link rel="stylesheet" type="text/css" href="../Css/menubar.css"/>
 <nav>
@@ -67,9 +53,9 @@ $db -> close();
 <body>
 <link rel="stylesheet" type="text/css" href="../Css/form.css">
 <?php if ($gelukt){ ?>
-    <p>ingelogd!</p>
+    <p>Account aangemaakt!</p>
 <?php } else { ?>
-    <h1>login</h1>
+    <h1>Maak Account</h1>
     <form id="inlog" action= "" method="post" enctype="multipart/form-data">
         <div>
             <label for="email">email</label>
