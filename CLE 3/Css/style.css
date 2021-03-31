@@ -5,25 +5,29 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0 auto;
-    align-content: center;
     background-color: #F8012D;
-}
-
-/* Image per show gets shown in this visual */
-.polaroid {
-    float: left;
-    width: 30%;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin: 20px;
-    position: relative;
-    cursor: pointer;
 }
 
 img {width: 100%}
 
+/* Image per show gets shown in this visual */
+.polaroid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 30%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+}
+
 /* Title of show gets shown in this box */
 .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     text-align: center;
     padding: 10px 20px;
     border-radius: 4px;
@@ -52,13 +56,13 @@ img {width: 100%}
 /* Changes image size for different types of screens */
 
 @media screen and (max-width: 992px){
-    .polaroid and .container{
+    .polaroid,.container{
         width: 20%;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .polaroid and .container {
+    .polaroid,.container {
         width: 10%;
     }
 }
