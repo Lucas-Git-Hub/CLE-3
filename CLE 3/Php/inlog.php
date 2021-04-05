@@ -2,11 +2,7 @@
 /** @var  $db */
 session_start();
 require_once 'database.php';
-
-if (isset($_SESSION['loggedInUser'])){
-    header('Location: account.php');
-    exit;
-}
+$onjuist = false;
 
 if (isset($_POST['submit'])){
 
@@ -33,12 +29,19 @@ if (isset($_POST['submit'])){
                     'password' => $user['password'],
 
                 ];
+            } else{
+                $onjuist = true;
             }
-
+        } else{
+            $onjuist = true;
         }
 
     }
 
+}
+if (isset($_SESSION['loggedInUser'])){
+    header('Location: account.php');
+    exit;
 }
 
 $db -> close();
@@ -80,5 +83,8 @@ $db -> close();
             <input type="submit" name="submit" value="login">
         </div>
     </form>
+    <?php if ($onjuist) { ?>
+    <p>email/wachtwoord onjuist</p>
+    <?php } ?>
 </section>
 </body>

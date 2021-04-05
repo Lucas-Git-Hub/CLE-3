@@ -24,6 +24,6 @@ if (!isset($_SESSION['loggedInUser'])) {
 </nav>
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
-
+<a href="logout.php">uitloggen</a>
 </body>
 
