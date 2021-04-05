@@ -1,9 +1,13 @@
 <?php
 session_start();
-
+/** @var $db  */
 if (!isset($_SESSION['loggedInUser'])) {
     header('Location: inlog.php');
     exit;
+} else {
+    require_once "database.php";
+    $query = "SELECT * FROM codes";
+    $result = $db -> query($query);
 }
 ?>
 
@@ -24,6 +28,27 @@ if (!isset($_SESSION['loggedInUser'])) {
 </nav>
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
+<h1>Mijn afspraken</h1>
+<link rel="stylesheet" type="text/css" href="webstyle.css">
+<table>
+    <thead>
+    <tr>
+        <th>Code</th>
+    </tr>
+    <tbody>
+    <?php if ($result->num_rows > 0) { ?>
+        <?php while($row = $result->fetch_assoc()) {?>
+                <tr>
+                    <td><?= $row["code"]?></td>
+                    <td><a href="edit.php?id=<?= $row['id']?>">Edit</a></td>
+                    <td><a href="delete.php?id=<?= $row['id']?>">Verwijder</a></td>
+                </tr>
+            <?php
+        }
+    } ?>
+    </tbody>
+</table>
+
 <a href="logout.php">uitloggen</a>
 </body>
 
