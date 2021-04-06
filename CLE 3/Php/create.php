@@ -8,7 +8,25 @@ if (!isset($_SESSION['loggedInUser'])) {
     header('Location: inlog.php');
     exit;
 }
-
+//checks if submit button is clicked
+if (isset($_POST['submit'])){
+    //stores codes in variable
+    $code = mysqli_escape_string($db, $_POST['code']);
+    $errors = [];
+    //checks if empty, otherwise shows error
+    if ($code==""){
+        $errors['code'] = 'verplicht veld';
+    }
+    if (empty($errors)){
+        $query = "INSERT INTO codes (code) VALUES ('$code');";
+        $result = mysqli_query($db, $query);
+        if ($result){
+            mysqli_close($db);
+            header('Location: account.php');
+            exit;
+        }
+    }
+}
 //checks if cancel button is clicked, then sends user back to account.php
 if (isset($_POST['cancel'])){
     mysqli_close($db);
