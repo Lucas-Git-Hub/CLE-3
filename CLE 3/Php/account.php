@@ -1,16 +1,18 @@
 <?php
 session_start();
 /** @var $db  */
+//checks if user has logged in cookies otherwise send to inlog.php
 if (!isset($_SESSION['loggedInUser'])) {
     header('Location: inlog.php');
     exit;
 } else {
+    //selects all codes from database
     require_once "database.php";
     $query = "SELECT * FROM codes";
     $result = $db -> query($query);
 }
 ?>
-
+<!--begin html-->
 <!doctype html>
 <head>
     <meta charset="UTF-8">
@@ -29,6 +31,7 @@ if (!isset($_SESSION['loggedInUser'])) {
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
 <h1>Codes</h1>
+<!--puts codes from database into a table with link to edit and delete page-->
 <table id="codes">
     <thead>
     <tbody>
@@ -45,6 +48,7 @@ if (!isset($_SESSION['loggedInUser'])) {
     </tbody>
 </table>
 
+<!--logs user out, clears session-->
 <a href="logout.php">uitloggen</a>
 </body>
 

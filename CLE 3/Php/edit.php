@@ -4,21 +4,27 @@ session_start();
 require_once "database.php";
 $codeID = $_GET['id'];
 
+//if not logged in send user to inlog.php
 if (!isset($_SESSION['loggedInUser'])) {
     header('Location: inlog.php');
     exit;
 }
+
+//checks if submit button is clicked
 if (isset($_POST['submit'])){
+    //stores codes in variable
     $code = mysqli_escape_string($db, $_POST['code']);
     $errors = [];
+    //checks if empty, otherwise shows error
     if ($code==""){
         $errors['code'] = 'verplicht veld';
     }
+    //checks if there are no errors, then updats code in new variable in database
     if (empty($errors)){
         $query = "UPDATE codes SET code = '$code' WHERE id='$codeID'";
         $result = mysqli_query($db, $query)
             or die('error: '.$query);
-
+        //when completed, close database and send user back to account.php
         if ($result){
             mysqli_close($db);
             header('Location: account.php');
@@ -26,6 +32,7 @@ if (isset($_POST['submit'])){
         }
     }
 }
+//checks if cancel button is clicked, then sends user back to account.php
 if (isset($_POST['cancel'])){
     mysqli_close($db);
     header('Location: account.php');
@@ -34,6 +41,7 @@ if (isset($_POST['cancel'])){
 
 ?>
 
+<!--begin html-->
 <html>
 <head>
     <meta charset="UTF-8">
@@ -47,9 +55,11 @@ if (isset($_POST['cancel'])){
 <link rel="stylesheet" type="text/css" href="../Css/form.css">
 <form action="" method="post">
     <h1>Voer nieuwe code in:</h1>
+    <!--html entities, protects from html inputs-->
     <div>
         <label for="code"></label>
         <input id="code" type="text" name="code" value = "<?= isset($code) ? htmlentities($code) : '' ?>" placeholder="Code"/>
+        <!--shows error from errors array-->
         <span><?= isset($errors['code']) ? $errors['code'] : '' ?></span>
     </div>
     <div>

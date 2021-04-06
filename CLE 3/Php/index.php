@@ -4,6 +4,7 @@ session_start();
 
 ?>
 
+<!--begin html-->
 <!doctype html>
 <head>
     <meta charset="UTF-8">
@@ -13,6 +14,7 @@ session_start();
     <title>JustDanceAR</title>
 </head>
 <link rel="stylesheet" type="text/css" href="../Css/menubar.css"/>
+<!--menu bar-->
 <nav>
     <ul>
         <li><a class="active" href="index.php">Home</a></li>
@@ -21,6 +23,7 @@ session_start();
 </nav>
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
+<!--field and title for shows-->
 <section>
     <div id="playing-field"></div>
     <div id="titlebox"></div>
