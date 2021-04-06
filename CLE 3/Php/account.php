@@ -39,6 +39,7 @@ if (!isset($_SESSION['loggedInUser'])) {
         <?php while($row = $result->fetch_assoc()) {?>
                 <tr>
                     <td><?= $row["code"]?></td>
+                    <td><a href="create.php?id=<?= $row['id']?>">Toevoegen</a></td>
                     <td><a href="edit.php?id=<?= $row['id']?>">Edit</a></td>
                     <td><a href="delete.php?id=<?= $row['id']?>">Verwijder</a></td>
                 </tr>
