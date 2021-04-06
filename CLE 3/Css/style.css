@@ -8,9 +8,15 @@ body {
     background-color: #F8012D;
 }
 
-/* Table color and text-align/font */
+/* Table color,shape and text-align/font */
+#codes{
+    border-collapse: collapse;
+    width: 25%;
+}
+
 td {
-    padding: 0 10px;
+    border: 1px solid #ddd;
+    padding: 8px;
 }
 
 tfoot td {

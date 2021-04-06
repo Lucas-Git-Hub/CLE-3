@@ -70,13 +70,13 @@ if (isset($_SESSION['loggedInUser'])){
     <h1>Login</h1>
     <form id="inlog" action= "" method="post" enctype="multipart/form-data">
         <div>
-            <label for="email">email</label>
-            <input id="email" type="text" name="email" value = "<?= isset($email) ? htmlentities($email) : '' ?>"/>
+            <label for="email"></label>
+            <input id="email" type="text" name="email" value = "<?= isset($email) ? htmlentities($email) : '' ?>" placeholder="Email"/>
             <span><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
         </div>
         <div>
-            <label for="password">password</label>
-            <input id="password" type="password" name="password" value = "<?= isset($password) ? htmlentities($password) : '' ?>"/>
+            <label for="password"></label>
+            <input id="password" type="password" name="password" value = "<?= isset($password) ? htmlentities($password) : '' ?>" placeholder="Password"/>
             <span><?= isset($errors['password']) ? $errors['password'] : '' ?></span>
         </div>
         <div>
@@ -84,7 +84,7 @@ if (isset($_SESSION['loggedInUser'])){
         </div>
     </form>
     <?php if ($onjuist) { ?>
-    <p>email/wachtwoord onjuist</p>
+    <p>Email/Wachtwoord onjuist</p>
     <?php } ?>
 </section>
 </body>

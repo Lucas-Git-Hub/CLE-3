@@ -35,11 +35,15 @@ if (isset($_POST['no'])){
 <link rel="stylesheet" type="text/css" href="../Css/style.css">
 <body>
 <link rel="stylesheet" type="text/css" href="../Css/form.css">
+<h1>Weet je zeker dat je dit wilt verwijderen?</h1>
 <form action="" method="post">
-    <p>Weet je zeker dat je dit wilt verwijderen?</p>
     <input type="hidden" name="id" value="<?= $codeID['id']?>"/>
-    <input type="submit" name="yes" value="ja"/>
-    <input type="submit" name="no" value="nee"/>
+    <div>
+        <input type="submit" name="yes" value="ja"/>
+    </div>
+    <div>
+        <input type="submit" name="no" value="nee"/>
+    </div>
 </form>
 </body>
 </html>

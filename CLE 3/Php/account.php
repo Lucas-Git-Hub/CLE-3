@@ -29,7 +29,7 @@ if (!isset($_SESSION['loggedInUser'])) {
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
 <h1>Codes</h1>
-<table>
+<table id="codes">
     <thead>
     <tr>
         <th>Code</th>

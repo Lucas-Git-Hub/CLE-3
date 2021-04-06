@@ -48,12 +48,16 @@ if (isset($_POST['cancel'])){
 <form action="" method="post">
     <h1>Voer nieuwe code in:</h1>
     <div>
-        <label for="code">Code</label>
-        <input id="code" type="text" name="code" value = "<?= isset($code) ? htmlentities($code) : '' ?>"/>
+        <label for="code"></label>
+        <input id="code" type="text" name="code" value = "<?= isset($code) ? htmlentities($code) : '' ?>" placeholder="Code"/>
         <span><?= isset($errors['code']) ? $errors['code'] : '' ?></span>
     </div>
-    <input type="submit" name="submit" value="confirm"/>
-    <input type="submit" name="cancel" value="cancel"/>
+    <div>
+        <input type="submit" name="submit" value="confirm"/>
+    </div>
+    <div>
+        <input type="submit" name="cancel" value="cancel"/>
+    </div>
 </form>
 </body>
 </html>
