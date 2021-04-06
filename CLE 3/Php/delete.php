@@ -34,6 +34,7 @@ if (isset($_POST['no'])){
 </head>
 <link rel="stylesheet" type="text/css" href="../Css/style.css">
 <body>
+<link rel="stylesheet" type="text/css" href="../Css/form.css">
 <form action="" method="post">
     <p>Weet je zeker dat je dit wilt verwijderen?</p>
     <input type="hidden" name="id" value="<?= $codeID['id']?>"/>
