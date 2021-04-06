@@ -19,11 +19,11 @@ tfoot td {
 }
 
 tr {
-    background-color: #F8012D;
+    background-color: #ff0000;
 }
 
 tr.odd {
-    background-color: #db0b0b;
+    background-color: #bf1919;
 }
 
 /* Flexbox for divs, makes them align in a row*/

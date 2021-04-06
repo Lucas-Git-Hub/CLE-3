@@ -32,6 +32,7 @@ if (isset($_POST['no'])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<link rel="stylesheet" type="text/css" href="../Css/style.css">
 <body>
 <form action="" method="post">
     <p>Weet je zeker dat je dit wilt verwijderen?</p>

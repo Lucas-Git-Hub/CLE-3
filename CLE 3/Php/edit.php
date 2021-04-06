@@ -42,6 +42,7 @@ if (isset($_POST['cancel'])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<link rel="stylesheet" type="text/css" href="../Css/style.css">
 <body>
 <link rel="stylesheet" type="text/css" href="../Css/form.css">
 <form action="" method="post">
