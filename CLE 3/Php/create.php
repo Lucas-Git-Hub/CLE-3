@@ -1,12 +1,24 @@
 <?php
+session_start();
+/** @var $db */
+require_once "database.php";
+
 //checks if user has logged in cookies otherwise send to inlog.php
 if (!isset($_SESSION['loggedInUser'])) {
     header('Location: inlog.php');
     exit;
 }
 
+//checks if cancel button is clicked, then sends user back to account.php
+if (isset($_POST['cancel'])){
+    mysqli_close($db);
+    header('Location: account.php');
+    exit;
+}
+
 ?>
 
+<!--begin html-->
 <html>
 <head>
     <meta charset="UTF-8">
@@ -33,6 +45,5 @@ if (!isset($_SESSION['loggedInUser'])) {
         <input type="submit" name="cancel" value="cancel"/>
     </div>
 </form>
-
 </body>
 </html>
