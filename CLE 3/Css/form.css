@@ -1,6 +1,11 @@
+/* H1 set to center*/
+h1 {
+    text-align: center;
+}
+
 /* Input text and password change visual*/
 input[type=text], input[type=password], select {
-    width: 100%;
+    width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -11,7 +16,7 @@ input[type=text], input[type=password], select {
 
 /* Input submit change visual*/
 input[type=submit] {
-    width: 100%;
+    width: 50%;
     background-color: #cc0000;
     color: white;
     padding: 14px 20px;
