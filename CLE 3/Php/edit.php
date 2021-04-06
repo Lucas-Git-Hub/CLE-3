@@ -43,6 +43,7 @@ if (isset($_POST['cancel'])){
     <title>Document</title>
 </head>
 <body>
+<link rel="stylesheet" type="text/css" href="../Css/form.css">
 <form action="" method="post">
     <h1>code</h1>
     <div>

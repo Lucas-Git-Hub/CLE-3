@@ -29,7 +29,6 @@ if (!isset($_SESSION['loggedInUser'])) {
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
 <h1>Mijn afspraken</h1>
-<link rel="stylesheet" type="text/css" href="webstyle.css">
 <table>
     <thead>
     <tr>

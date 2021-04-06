@@ -8,6 +8,24 @@ body {
     background-color: #F8012D;
 }
 
+/* Table color and text-align/font */
+td {
+    padding: 0 10px;
+}
+
+tfoot td {
+    text-align: center;
+    font-weight: bold;
+}
+
+tr {
+    background-color: #F8012D;
+}
+
+tr.odd {
+    background-color: #db0b0b;
+}
+
 /* Flexbox for divs, makes them align in a row*/
 div {
     display: flex;
