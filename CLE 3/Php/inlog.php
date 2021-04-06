@@ -67,7 +67,7 @@ if (isset($_SESSION['loggedInUser'])){
 <body>
 <link rel="stylesheet" type="text/css" href="../Css/form.css"/>
 <section>
-    <h1>login</h1>
+    <h1>Login</h1>
     <form id="inlog" action= "" method="post" enctype="multipart/form-data">
         <div>
             <label for="email">email</label>

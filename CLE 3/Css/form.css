@@ -1,5 +1,32 @@
+/* Input text change visual*/
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
-form  { display: table;      }
-p     { display: table-row;  }
-label { display: table-cell; }
-input { display: table-cell; }
+/* Input submit change visual*/
+input[type=submit] {
+    width: 100%;
+    background-color: #cc0000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Input submit change visual when hovered over*/
+input[type=submit]:hover {
+    background-color: #ff0000;
+}
+
+div {
+    border-radius: 5px;
+    padding: 20px;
+}

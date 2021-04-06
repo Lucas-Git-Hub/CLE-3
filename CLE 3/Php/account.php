@@ -28,7 +28,7 @@ if (!isset($_SESSION['loggedInUser'])) {
 </nav>
 <link rel="stylesheet" type="text/css" href="../Css/style.css"/>
 <body>
-<h1>Mijn afspraken</h1>
+<h1>Codes</h1>
 <table>
     <thead>
     <tr>

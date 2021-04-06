@@ -26,6 +26,10 @@ tr.odd {
     background-color: #bf1919;
 }
 
+tbody tr:nth-child(odd) {
+    background-color: #bf1919;
+}
+
 /* Flexbox for divs, makes them align in a row*/
 div {
     display: flex;
